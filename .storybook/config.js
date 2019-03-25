@@ -5,6 +5,7 @@ import readme from "../README.md";
 import Markdown from "./component/MyMarkdown";
 import Component from "../src";
 import "./index.css";
+import "../src/assets/index";
 
 function createExamplesStories() {
     const exampleStories = storiesOf("Examples", module);

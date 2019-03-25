@@ -36,8 +36,8 @@ yarn add xy-switch
 ```ts
 import React from "react";
 import ReactDOM from "react-dom";
-import XySwitch from "xy-switch";
-ReactDOM.render(<XySwitch />, container);
+import Switch from "xy-switch";
+ReactDOM.render(<Switch />, container);
 ```
 
 ## 开发

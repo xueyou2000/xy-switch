@@ -1,18 +1,54 @@
 import React from "react";
+import classNames from "classnames";
+import { useControll } from "utils-hooks";
+import { SwitchProps } from "./interface";
 
-export interface MyComponentProps {
-    /**
-     * 根节点附加类名
-     */
-    className?: string;
-    /**
-     * 内敛样式
-     */
-    style?: React.CSSProperties;
+export function Switch(props: SwitchProps) {
+    const { prefixCls = "xy-switch", className, style, defaultChecked, checkedChildren, unCheckedChildren, checked, onChange, ...rest } = props;
+    const [checkd, setChecked, isControll] = useControll(props, "checked", "defaultChecked");
+    const classString = classNames(prefixCls, className, {
+        [`${prefixCls}-checked`]: checkd,
+        [`${prefixCls}-disabled`]: props.disabled,
+        [`${prefixCls}-readonly`]: props.readOnly
+    });
+    const inputProps = {
+        ...rest,
+        type: "checkbox",
+        role: "switch",
+        "aria-checked": checkd,
+        "aria-disabled": props.disabled || props.readOnly,
+        className: `${prefixCls}-input`,
+        onChange: handleCheckChange
+    };
+    if (isControll) {
+        inputProps["checked"] = checkd;
+    } else {
+        inputProps["defaultChecked"] = defaultChecked;
+    }
+
+    function doSetChecked(ck: boolean) {
+        if (props.disabled || props.readOnly) {
+            return;
+        }
+        if (!isControll) {
+            // 非受控组件将当前checked作为唯一数据源
+            setChecked(ck);
+        }
+        if (props.onChange) {
+            props.onChange(ck);
+        }
+    }
+
+    function handleCheckChange(e: React.ChangeEvent<HTMLInputElement>) {
+        doSetChecked(e.target.checked);
+    }
+
+    return (
+        <span className={classString} style={style}>
+            <span className={`${prefixCls}-inner`}>{checkd ? checkedChildren : unCheckedChildren}</span>
+            <input {...inputProps} />
+        </span>
+    );
 }
 
-export function MyComponent(props: MyComponentProps) {
-    return <div>Hello</div>;
-}
-
-export default MyComponent;
+export default React.memo(Switch);
