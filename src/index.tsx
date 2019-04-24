@@ -4,7 +4,7 @@ import { useControll } from "utils-hooks";
 import { SwitchProps } from "./interface";
 
 export function Switch(props: SwitchProps) {
-    const { prefixCls = "xy-switch", className, style, defaultChecked, checkedChildren, unCheckedChildren, checked, onChange, ...rest } = props;
+    const { prefixCls = "xy-switch", className, style, defaultChecked, checkedChildren, unCheckedChildren, checked, value, onChange, ...rest } = props;
     const [checkd, setChecked, isControll] = useControll<boolean>(props, "checked", "defaultChecked");
     const classString = classNames(prefixCls, className, {
         [`${prefixCls}-checked`]: checkd,
@@ -21,7 +21,7 @@ export function Switch(props: SwitchProps) {
         onChange: handleCheckChange
     };
     if (isControll) {
-        inputProps["checked"] = checkd || "";
+        inputProps["checked"] = checkd || false;
     } else {
         inputProps["defaultChecked"] = defaultChecked;
     }
@@ -46,7 +46,7 @@ export function Switch(props: SwitchProps) {
     return (
         <span className={classString} style={style}>
             <span className={`${prefixCls}-inner`}>{checkd ? checkedChildren : unCheckedChildren}</span>
-            <input {...inputProps} />
+            <input {...inputProps} value={value || ""} />
         </span>
     );
 }

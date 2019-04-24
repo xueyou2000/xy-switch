@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.3 (Wed Apr 24 2019)
+
+-   修复`input`里`value`被直接代理过去的问题
+
 ## 0.0.2 (Wed Apr 24 2019)
 
 -   修复`z-index`过大挡住其他组件
