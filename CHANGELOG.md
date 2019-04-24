@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.4 (Wed Apr 24 2019)
+
+-   转发 ref
+
 ## 0.0.3 (Wed Apr 24 2019)
 
 -   修复`input`里`value`被直接代理过去的问题

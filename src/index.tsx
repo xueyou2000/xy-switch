@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useControll } from "utils-hooks";
 import { SwitchProps } from "./interface";
 
-export function Switch(props: SwitchProps) {
+export const Switch = React.forwardRef((props: SwitchProps, ref: React.MutableRefObject<any>) => {
     const { prefixCls = "xy-switch", className, style, defaultChecked, checkedChildren, unCheckedChildren, checked, value, onChange, ...rest } = props;
     const [checkd, setChecked, isControll] = useControll<boolean>(props, "checked", "defaultChecked");
     const classString = classNames(prefixCls, className, {
@@ -44,11 +44,11 @@ export function Switch(props: SwitchProps) {
     }
 
     return (
-        <span className={classString} style={style}>
+        <span className={classString} style={style} ref={ref}>
             <span className={`${prefixCls}-inner`}>{checkd ? checkedChildren : unCheckedChildren}</span>
             <input {...inputProps} value={value || ""} />
         </span>
     );
-}
+});
 
 export default React.memo(Switch);
