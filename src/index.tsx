@@ -5,7 +5,7 @@ import { SwitchProps } from "./interface";
 
 export function Switch(props: SwitchProps) {
     const { prefixCls = "xy-switch", className, style, defaultChecked, checkedChildren, unCheckedChildren, checked, onChange, ...rest } = props;
-    const [checkd, setChecked, isControll] = useControll(props, "checked", "defaultChecked");
+    const [checkd, setChecked, isControll] = useControll<boolean>(props, "checked", "defaultChecked");
     const classString = classNames(prefixCls, className, {
         [`${prefixCls}-checked`]: checkd,
         [`${prefixCls}-disabled`]: props.disabled,
@@ -21,7 +21,7 @@ export function Switch(props: SwitchProps) {
         onChange: handleCheckChange
     };
     if (isControll) {
-        inputProps["checked"] = checkd;
+        inputProps["checked"] = checkd || "";
     } else {
         inputProps["defaultChecked"] = defaultChecked;
     }
