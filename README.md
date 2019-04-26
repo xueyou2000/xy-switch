@@ -25,15 +25,15 @@
 
 ```sh
 # npm
-npm install --save xy-switch
+npm install --save xy-switch utils-hooks classnames
 
 # yarn
-yarn add xy-switch
+yarn add xy-switch utils-hooks classnames
 ```
 
 ## 使用
 
-```ts
+```tsx
 import React from "react";
 import ReactDOM from "react-dom";
 import Switch from "xy-switch";
