@@ -5,7 +5,7 @@ import "../src/assets/index";
 export default function() {
     return (
         <div>
-            <Switch defaultChecked={true} />
+            <Switch checkedChildren="开" unCheckedChildren="关" />
         </div>
     );
 }

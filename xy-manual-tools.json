@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Simple",
+        "title": "简单使用",
+        "desc": "最简单的用法。"
+    },
+    {
+        "name": "Disabled",
+        "title": "禁用",
+        "desc": "使用 disabled 属性来设置禁用样式"
+    },
+    {
+        "name": "Customize",
+        "title": "自定义",
+        "desc": "自定义开状态和关状态"
+    }
+]

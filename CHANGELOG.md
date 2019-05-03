@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.6 (Fri May 03 2019)
+
+-   从`storybook`换成`xy-manual-tools`来管理 demo
+
 ## 0.0.5 (Fri Apr 26 2019)
 
 -   更新依赖
