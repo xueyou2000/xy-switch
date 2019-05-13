@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.8 (Mon May 13 2019)
+
+-   更新依赖
+
 ## 0.0.7 (Sun May 05 2019)
 
 -   更新`xy-manual-tools`, 修复编译 demo
