@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "react-testing-library";
+import { render, fireEvent } from "@testing-library/react";
 import Switch from "../src";
 
 describe("Switch", () => {
@@ -10,7 +10,7 @@ describe("Switch", () => {
                     <Switch id="theme" />
                     开启
                 </label>
-            </div>
+            </div>,
         );
 
         const input = wrapper.getByLabelText("开启", { selector: "input" }) as HTMLInputElement;
@@ -36,7 +36,7 @@ describe("Switch", () => {
                     <Switch id="theme" value={6} />
                     开启
                 </label>
-            </div>
+            </div>,
         );
         const input = wrapper.getByLabelText("开启", { selector: "input" }) as HTMLInputElement;
         expect(input.value).toBe("6");
@@ -56,7 +56,7 @@ describe("Switch", () => {
                     <Switch id="theme" disabled={true} onChange={handleChange} />
                     useTheme
                 </label>
-            </div>
+            </div>,
         );
         const input = wrapper.getByLabelText("useTheme", { selector: "input" }) as HTMLInputElement;
         const span = wrapper.container.querySelector(".xy-switch");
